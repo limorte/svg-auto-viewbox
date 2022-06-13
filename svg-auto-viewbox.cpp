@@ -8,10 +8,11 @@
 #include <iostream>
 #include <sstream>
 
-#include "stdafx.h"
+//#include "stdafx.h"
 //#include <string>
+//#include <cstdio>
 
-#include <tinyxml2/tinyxml2.h>
+//#include <tinyxml2/tinyxml2.h>
 
 typedef float real;
 typedef glm::vec3 vec3;
@@ -73,7 +74,7 @@ int main(int ac, char** av) {
 		//	}
 		//}
 
-		{
+		//{
 			struct NSVGimage* image;
 			image = nsvgParse(av[1], "px", 1);
 			if (image) {
@@ -83,18 +84,22 @@ int main(int ac, char** av) {
 
 				glm::vec2 len = aabb.len();
 
-				tinyxml2::XMLDocument doc;
-				doc.Parse(av[1]);
-				auto svgElement = doc.FirstChildElement("svg");
-				if (svgElement) {
+				//tinyxml2::XMLDocument doc;
+				//doc.Parse(av[1]);
+				//auto svgElement = doc.FirstChildElement("svg");
+				
+				//if (svgElement) {
 					std::stringstream ss;
 					ss << aabb.mMin.x << " " << aabb.mMin.y << " " << len.x << " " << len.y;
-					svgElement->SetAttribute("viewBox", ss.str().c_str());
-				}
+					std::cout << ss.str().c_str() << std::endl;
+					//std::cout.flush();
+					//svgElement->SetAttribute("viewBox", ss.str().c_str());
+				//}
 				//doc.SaveFile(av[i], true);
-				doc.Print();
+				//doc.Print();
 				nsvgDelete(image);
 			}
-		}
+		//}
 	//}
+	return 0;
 }
