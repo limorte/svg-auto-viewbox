@@ -38,8 +38,8 @@ workspace "svg-auto-viewbox"
 			platforms 	{"Universal"}
 			defines {"MACOSX"}
 			links       { "CoreFoundation.framework", "Cocoa.framework", "IOKit.framework"}
-			buildoptions { "-mmacosx-version-min=10.4" }
-			linkoptions  { "-mmacosx-version-min=10.4" }
+			buildoptions { "-mmacosx-version-min=11.0" }
+			linkoptions  { "-mmacosx-version-min=11.0" }
 
 		filter "system:windows"
 			architecture ("x86")
